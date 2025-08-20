@@ -31,11 +31,30 @@ explore: age_specific_fertility_rates {}
 
 explore: midyear_population_5yr_age_sex {}
 
-explore: mortality_life_expectancy {}
+explore: mortality_life_expectancy {
+  join: midyear_population {
+    sql_on: ${mortality_life_expectancy.country_code} = ${midyear_population.country_code} AND ${mortality_life_expectancy.year} = ${midyear_population.year} ;;
+    relationship: one_to_one
+    type: left_outer
+  }
+  join: country_names_area {
+    sql_on: ${mortality_life_expectancy.country_code} = ${country_names_area.country_code} ;;
+    relationship: one_to_one
+    type: left_outer
+  }}
 
 explore: country_names_area {}
 
-explore: midyear_population_age_sex {}
+explore: midyear_population_age_sex {  join: midyear_population {
+    sql_on: ${midyear_population.country_code} = ${midyear_population.country_code} AND ${midyear_population.year} = ${midyear_population.year} ;;
+    relationship: one_to_one
+    type: left_outer
+  }
+  join: country_names_area {
+    sql_on: ${midyear_population.country_code} = ${country_names_area.country_code} ;;
+    relationship: one_to_one
+    type: left_outer
+  }}
 
 explore: midyear_population {}
 
