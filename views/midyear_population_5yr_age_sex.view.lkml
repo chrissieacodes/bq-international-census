@@ -13,6 +13,7 @@ view: midyear_population_5yr_age_sex {
   }
   dimension: country_name {
     type: string
+    map_layer_name: countries
     description: "Country or area name"
     sql: ${TABLE}.country_name ;;
   }

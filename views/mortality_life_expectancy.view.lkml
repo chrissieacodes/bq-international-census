@@ -8,6 +8,7 @@ view: mortality_life_expectancy {
   }
   dimension: country_name {
     type: string
+    map_layer_name: countries
     description: "Country or area name"
     sql: ${TABLE}.country_name ;;
   }

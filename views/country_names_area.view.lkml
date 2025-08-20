@@ -13,6 +13,7 @@ view: country_names_area {
   }
   dimension: country_name {
     type: string
+    map_layer_name: countries
     description: "Country or area name"
     sql: ${TABLE}.country_name ;;
   }
